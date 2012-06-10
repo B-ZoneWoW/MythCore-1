@@ -317,9 +317,9 @@ REPLACE INTO `trinity_string` VALUES ('300', 'Your chat has been disabled by %s 
 REPLACE INTO `trinity_string` VALUES ('303', 'Your chat has been enabled by %s.', null, null, null, null, null, null, null, 'Чат снова включен %s.');
 
 -- .nameannounce for differrent GM ranks
-REPLACE INTO `trinity_string` VALUES ('787', '|cffffff00[|c1fE82FE8Moderator|cffffff00]|r %s|cffffff00:|r %s|r', null, null, null, null, null, null, null, '|cffffff00[|c1fE82FE8Модератор|cffffff00]|r %s|cffffff00:|r %s|r');
+REPLACE INTO `trinity_string` VALUES ('789', '|cffffff00[|c1fE82FE8Moderator|cffffff00]|r %s|cffffff00:|r %s|r', null, null, null, null, null, null, null, '|cffffff00[|c1fE82FE8Модератор|cffffff00]|r %s|cffffff00:|r %s|r');
 REPLACE INTO `trinity_string` VALUES ('788', '|cffffff00[|c1f0FF20FGM|cffffff00]|r %s|cffffff00:|r %s|r', null, null, null, null, null, null, null, '|cffffff00[|c1f0FF20FГМ|cffffff00]|r %s|cffffff00:|r %s|r');
-REPLACE INTO `trinity_string` VALUES ('789', '|cffffff00[|c1f40af20Admin|cffffff00]|r %s|cffffff00:|r %s|r', null, null, null, null, null, null, null, '|cffffff00[|c1f40af20Администратор|cffffff00]|r %s|cffffff00:|r %s|r');
+REPLACE INTO `trinity_string` VALUES ('787', '|cffffff00[|c1f40af20Admin|cffffff00]|r %s|cffffff00:|r %s|r', null, null, null, null, null, null, null, '|cffffff00[|c1f40af20Администратор|cffffff00]|r %s|cffffff00:|r %s|r');
 
 -- .ban/unban character
 REPLACE INTO `command` VALUES ('ban character','5','Syntax: .ban character $Name $bantime $reason\n\rBan character and kick player.\n\r$bantime: negative value leads to permban\, otherwise use a timestring like "4d20h3s".');
