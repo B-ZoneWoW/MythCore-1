@@ -723,8 +723,9 @@ enum TrinityStrings
     LANG_ARENA_TESTING                  = 785,
     LANG_AUTO_ANN                       = 786,
     LANG_ANNOUNCE_COLOR                 = 787,
-    LANG_ANNOUNCE_COLOR_GM              = 788,
-    LANG_ANNOUNCE_COLOR_MOD             = 789,
+    LANG_ANNOUNCE_COLOR_MOD             = 788,
+    LANG_ANNOUNCE_COLOR_GM              = 789,
+    LANG_ANNOUNCE_COLOR_ADMIN           = 790,
 
     // in game strings
     LANG_PET_INVALID_NAME               = 800,

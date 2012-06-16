@@ -47,12 +47,22 @@ bool ChatHandler::HandleNameAnnounceCommand(const char* args)
         name = session->GetPlayer()->GetName();
     }
 
-    if (sec < SEC_GAMEMASTER_LOW)
-        sWorld->SendWorldText(LANG_ANNOUNCE_COLOR_MOD, name.c_str(), args);
-    else if (sec < SEC_ADMINISTRATOR)
-        sWorld->SendWorldText(LANG_ANNOUNCE_COLOR_GM, name.c_str(), args);
-    else
-        sWorld->SendWorldText(LANG_ANNOUNCE_COLOR, name.c_str(), args);
+    switch (sec)
+    {
+          case SEC_MODERATOR_NOANN:
+          case SEC_MODERATOR:
+                  sWorld->SendWorldText(LANG_ANNOUNCE_COLOR_MOD, name.c_str(), args);
+                   break;
+          case SEC_GAMEMASTER_LOW:
+          case SEC_GAMEMASTER_MED:
+          case SEC_GAMEMASTER:
+                  sWorld->SendWorldText(LANG_ANNOUNCE_COLOR_GM, name.c_str(), args);
+                  break;
+          case SEC_DEVELOPER:
+          case SEC_ADMINISTRATOR:
+                  sWorld->SendWorldText(LANG_ANNOUNCE_COLOR_ADMIN, name.c_str(), args);
+                  break;
+    }
     return true;
 }
 
