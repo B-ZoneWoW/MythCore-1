@@ -54,8 +54,8 @@ public:
         return commandTable;
     }
 
-        static bool HandleLearnCommand(ChatHandler* handler, const char* args)
-        {
+    static bool HandleLearnCommand(ChatHandler* handler, const char* args)
+    {
         Player* targetPlayer = handler->getSelectedPlayer();
 
         if(!targetPlayer)
