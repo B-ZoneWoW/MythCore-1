@@ -590,6 +590,9 @@ void AddSC_wintergrasp();
 // player
 void AddSC_chat_log();
 
+// custom
+void AddSC_transmogrify_script();
+
 #endif
 
 void AddScripts()
@@ -662,6 +665,7 @@ void AddWorldScripts()
     AddSC_chat_log();
     AddSC_brewfest_event();
     AddSC_pilgrims_event();
+    AddSC_transmogrify_script();
 #endif
 }
 
