@@ -363,6 +363,33 @@ void Map::LoadGrid(float x, float y)
     EnsureGridLoaded(cell);
 }
 
+void Map::SendInitTransportsInInstance(Player* player)
+{
+    // Hack to send out transports
+    MapManager::TransportMap& tmap = sMapMgr->m_TransportsByInstanceIdMap;
+
+    // no transports at map
+    if (tmap.find(player->GetInstanceId()) == tmap.end())
+        return;
+
+    UpdateData transData;
+
+    MapManager::TransportSet& tset = tmap[player->GetInstanceId()];
+
+    for (MapManager::TransportSet::const_iterator i = tset.begin(); i != tset.end(); ++i)
+    {
+        // send data for current transport in other place
+        if ((*i) != player->GetTransport() && (*i)->GetInstanceId() == GetInstanceId())
+        {
+            (*i)->BuildCreateUpdateBlockForPlayer(&transData, player);
+        }
+    }
+
+    WorldPacket packet;
+    transData.BuildPacket(&packet);
+    player->GetSession()->SendPacket(&packet);
+}
+
 bool Map::Add(Player* pPlayer)
 {
     // Check if we are adding to correct map
@@ -386,6 +413,10 @@ bool Map::Add(Player* pPlayer)
 
     SendInitSelf(pPlayer);
     SendInitTransports(pPlayer);
+
+    // And send init transport in instance
+    if (Instanceable())
+        SendInitTransportsInInstance(pPlayer);
 
     pPlayer->m_clientGUIDs.clear();
     pPlayer->UpdateObjectVisibility(false);
